@@ -1,0 +1,289 @@
+.aui-header-box {
+    height: 350px;
+    position: relative;
+    border: none;
+    position: relative;
+    background-color: #ffffff;
+    opacity:0.0;
+
+}
+
+.aui-header-box-logo {
+    position: absolute;
+    z-index: 10;
+    top: 76px;
+    left: 50%;
+    margin-left: -350px;
+    width: 112px;
+    height: 42px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.aui-content-box {
+    width: 700px;
+    margin: -300px 400px 60px;
+    padding: 70px 65px 70px 75px;
+    background-color: #ffffff;
+    display: table;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    border: 1px solid #d6d6d6;
+    z-index: 999;
+    position: relative;
+    z-index: 999;
+}
+
+.aui-content-box-fl {
+    width: 315px;
+    height: 350px;
+    /* background:#900; */
+    float: left;
+    border-right: 1px dashed #d4d4d4;
+    padding-right: 40px;
+}
+
+.aui-content-box-fr {
+    width: 165px;
+    height: 220px;
+    /* background:#00b38a; */
+    padding-top: 26px;
+    float: right;
+    padding-left: 20px;
+}
+
+.aui-form-header {
+    position: relative;
+    z-index: 1;
+    height: 35px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e2e0e0;
+}
+
+.aui-form-header .aui-form-header-item {
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 33px;
+    cursor: pointer;
+    text-align: center;
+    color: #121212;
+}
+
+.aui-form-header li a {
+    color: #121212;
+}
+
+.aui-form-content-item {
+    display: none;
+}
+
+.aui-form-header .on {
+    margin-bottom: -1px;
+    color: #ed4242;
+    border-bottom: 2px solid #ed4242;
+}
+
+.aui-form-header .on:after {
+    position: absolute;
+    z-index: 2;
+    top: -12px;
+    left: 50%;
+    margin-left: -3px;
+    content: "";
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #ed4242;
+}
+
+.aui-form-header .on:after {
+    z-index: 3;
+    top: -11px;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #fff;
+}
+
+.aui-form-header .on:after {
+    position: absolute;
+    z-index: 2;
+    top: 21px;
+    left: 50%;
+    margin-left: -3px;
+    content: "";
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #ed4242;
+}
+
+.aui-form-list {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+}
+
+.aui-form-list .aui-input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-color: #ededed;
+    background: 0 0;
+}
+
+.aui-form-pwd {
+    padding-top: 20px;
+}
+
+.aui-form-pwd a {
+    position: relative;
+    float: right;
+    font-size: 14px;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #ed4242;
+    margin-top: -5px;
+    z-index: 3;
+}
+
+.aui-form-btn {
+    position: relative;
+    margin-top: 20px;
+}
+
+.aui-form-btn .aui-btn {
+    color: #fff;
+    border-color: #FC4349;
+    background-color: #FC4349;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    line-height: 46px;
+    height: 46px;
+}
+
+.aui-child {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    height: 43px;
+    font-size: 14px;
+    padding: 0;
+    border: 0;
+    color: #ed4242;
+}
+
+.aui-child-img img {
+    width: 75px;
+    display: block;
+    border: none;
+}
+
+.aui-content-box-text h3 {
+    margin: 44px 0 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.aui-content-box-text .aui-ll-link {
+    display: inline-block;
+    height: 22px;
+    font-size: 15px;
+    color: #FC4349;
+    padding-right: 23px;
+    background: url("../img/icon-row.png") right center no-repeat;
+    background-size: 20px;
+}
+
+.aui-content-box-text-link {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.aui-content-box-text-link li {
+    display: block;
+    margin-left: 22px;
+    float: left;
+}
+
+.aui-content-box-text-link li:first-child {
+    margin: 0;
+}
+
+.aui-content-box-text-link li a {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.aui-form-list .aui-input:active {
+    border-bottom: 1px solid #ed4242;
+}
+
+.aui-form-list .aui-input:active {
+    border-bottom: 1px solid #ed4242;
+}
+
+.aui-form-list .aui-input:hover {
+    border-bottom: 1px solid #ed4242;
+}
+
+.aui-form-ty {
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+    text-align: center;
+    color: #999;
+}
+
+.aui-icon-sina {
+	background-image: url(../img/xinlang.png);
+}
+
+.aui-icon-sina:hover {
+	background-image: url(../img/xinlang1.png);
+}
+
+.aui-icon-wechat {
+	background-image: url(../img/weixin.png)
+}
+
+.aui-icon-wechat:hover {
+	background-image: url(../img/weixin1.png)
+}
+
+.aui-icon-qq {
+	background-image: url(../img/qq.png);
+}
+
+.aui-icon-qq:hover {
+	background-image: url(../img/qq1.png);
+}
+
+.aui-icon-baidu {
+	background-image: url(../img/baidu.png)
+}
+
+.aui-icon-baidu:hover {
+	background-image: url(../img/baidu1.png)
+}

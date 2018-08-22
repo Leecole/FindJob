@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.findjob.dao.CombasemsgDao">
+
+    <select id="showAllCompanys" resultType="Combasemsg">
+        select * from combasemsg
+    </select>
+
+    <!--根据useraccountid查询所属公司的基本信息-->
+    <select id="getComInfo" resultType="Combasemsg">
+        select c.COMNAME,c.COMBASEMSGID
+        from combasemsg c,account a
+        where c.COMBASEMSGID=a.USERACCOUNTID
+    </select>
+
+    <!--根据账号id查询公司基本信息-->
+    <select id="getComidByid" resultType="Combasemsg">
+        select c.combasemsgid, c.comname, c.faren, c.phone,
+        c.registertime, c.businesslicense, c.industry, c.address,
+        c.comsize,c.comtype, c.accountid, c.des
+        from combasemsg c,account a
+        where c.ACCOUNTID=a.USERACCOUNTID and a.USERACCOUNTID=#{useraccountid}
+    </select>
+
+</mapper>

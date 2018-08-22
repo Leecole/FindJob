@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.findjob.dao.ComPositionDao">
+
+    <!--创建新的职位:-->
+    <!--dao方法：insertNewPosition； 主键：positionid； 使用自增：true; 参数类型：position-->
+    <insert id="insertNewPosition" keyColumn="positionid" useGeneratedKeys="true" parameterType="position">
+        insert  into position(positionname,NEEDED,POSITIONMSG,SALARY,EXPERIENCE,EDU,ADDRESS,PUBTIME,POSITIONLABLE)
+        values(#{positionname},#{NEEDED},#{POSITIONMSG},#{SALARY},#{EXPERIENCE},#{EDU},#{ADDRESS},#{PUBTIME},#{POSITIONLABLE})
+    </insert>
+
+    <!--查询该公司名下所有的职位信息-->
+    <select id="selectAllPositions" resultType="Position">
+      select p.positionid, p.positionname, p.needed,
+       p.salary, p.experience, p.edu, p.address, p.pubtime,
+       p.positionlable, p.combasemsgid, p.poitiontypeid, p.positionmsg
+       from position p,combasemsg c
+       where p.COMBASEMSGID=c.COMBASEMSGID and p.COMBASEMSGID=#{combasemsgid}
+    </select>
+
+    <!--这里是删除语句，是根据positionid删除-->
+    <delete id="deletePosition">
+        delete from position where position.POSITIONID=#{positionid}
+    </delete>
+
+
+</mapper>

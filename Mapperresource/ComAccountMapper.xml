@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:必填-->
+<mapper namespace="com.findjob.dao.ComAccountDAO">
+
+
+    <!--查询语句模块-->
+         <!--使用别名：resultType=“account”，根据phone password开始查找数据库是否存在该用户，返回一个account对象-->
+    <select id="HRlogin" resultType="account">
+        select * from account where PHONE=#{0} and PASSWORD=#{1}
+    </select>
+
+
+    <!--插入语句模块-->
+         <!--keyColumn :设置数据表自动生成的主键名-->
+         <!--useGeneratedKeys:设置是否使用JDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中-->
+    <insert id="HRrigister" parameterType="account" useGeneratedKeys="true" keyColumn="useraccountid">
+        insert into account(PHONE,PASSWORD,TOUXIANG,STATUS,TYPE) values(#{phone},#{password},#{touxiang},#{status},#{type})
+    </insert>
+
+    <!--修改密码模块-->
+    <update id="HRUploadPassword">
+        update account set PASSWORD=#{newpassword} where PHONE=#{phone}
+    </update>
+
+
+</mapper>
+ 

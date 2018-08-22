@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.findjob.dao.ComJianliDAO">
+
+   <!--这里是查询主页上的简历的方法-->
+    <select id="showjianli" resultType="jianli">
+        SELECT * FROM jianli ORDER BY RAND() LIMIT 10
+    </select>
+
+
+    <!--这里是显示更多，查询所有简历的方法-->
+    <select id="alljianli"  resultType="jianli">
+        select * from jianli
+    </select>
+
+    <!--talentlist界面条件查询语句-->
+    <select id="conditionjianli" resultType="jianli" parameterType="com.findjob.pojo.Condition">
+
+        <bind name="salary" value="'%' + _parameter.getHopedsalary() + '%'" />
+        <bind name="exp" value="'%' + _parameter.getStartworktime() + '%'" />
+        <bind name="type" value="'%' + _parameter.getHopedworktype() + '%'" />
+        <bind name="addr" value="'%' + _parameter.getHopedaddress() + '%'" />
+        select * from jianli
+    <where>
+         <if test="hopedsalary != null">
+              hopedsalary like #{salary}
+         </if>
+         <if test="startworktime != null">
+             and startworktime like #{exp}
+         </if>
+         <if test="hopedworktype != null">
+             and hopedworktype like #{type}
+         </if>
+        <if test="hopedaddress != null">
+            and hopedaddress like #{addr}
+        </if>
+      </where>
+    </select>
+
+    <!--根据简历id，将简历添加到收藏的语句-->
+    <insert id="getJianliByid" keyColumn="id" useGeneratedKeys="true">
+        insert into talentmanager(JOINTIME,JIANLIID,COMBASEMSGID)
+        values(#{jointime},#{jianliid},#{combasemsgid})
+    </insert>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.findjob.dao.ComTalentmanagerDAO">
+    <resultMap id="mapss" type="Talentmanager">
+        <id property="id" column="id"></id>
+        <result property="jointime" column="jointime"></result>
+        <result property="level" column="level"></result>
+        <result property="jianliid" column="jianliid"></result>
+        <result property="combasemsgid" column="combasemsgid"></result>
+        <!--<result property="resultjianli" column="resultjianli"></result>-->
+        <association property="jianli" javaType="jianli">
+           <id property="jianliid"  column="jianliid"></id>
+           <result property="name" column="name"></result>
+            <result property="age" column="age"></result>
+            <result property="sex" column="sex"></result>
+            <result property="email" column="email"></result>
+            <result property="phone" column="phone"></result>
+            <result property="address" column="address"></result>
+            <result property="startworktime" column="startworktime"></result>
+            <result property="workstatus" column="workstatus"></result>
+            <result property="hopedhangye" column="hopedhangye"></result>
+            <result property="hopedzhiwei" column="hopedzhiwei"></result>
+            <result property="hopedworktype" column="hopedworktype"></result>
+            <result property="hopedsalary" column="hopedsalary"></result>
+            <result property="hopedaddress" column="hopedaddress"></result>
+            <result property="useraccountid" column="useraccountid"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectjianlibycomid" resultMap="mapss">
+        select
+       t.id, t.jointime, t.level, t.jianliid, t.combasemsgid,
+        j.jianliid, j.name, j.age, j.sex,
+         j.email, j.phone, j.address, j.startworktime,
+          j.workstatus, j.hopedhangye, j.hopedzhiwei,
+           j.hopedworktype, j.hopedsalary, j.hopedaddress, j.useraccountid
+        from talentmanager t left outer join jianli j on t.JIANLIID=j.JIANLIID
+        where t.COMBASEMSGID = #{combasemsgid}
+    </select>
+
+    <delete id="deleteCollectById">
+        delete from talentmanager where jianliid=#{jianliid}
+    </delete>
+
+    <insert id="updateTalentByLevel">
+        update talentmanager set LEVEL=#{level} where jianliid=#{jianliid}
+    </insert>
+
+</mapper>
